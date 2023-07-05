@@ -68,11 +68,7 @@ import wikipedia
 def fetch_wikipedia_page(search_term: str) -> Optional[str]:
     results = wikipedia.search(search_term)
     # If no results, return to caller.
-    if len(results) == 0:
-        return None
-
-    # Get the page for the top result.
-    return wikipedia.page(results[0]).content
+    return None if len(results) == 0 else wikipedia.page(results[0]).content
 
 
 from ray import serve
